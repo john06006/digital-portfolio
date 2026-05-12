@@ -1,105 +1,282 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John C | Portfolio</title>
+
     <style>
-        body {
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #84a6e9;
+            background:#f4f7fc;
+            color:#333;
+            line-height:1.6;
         }
 
-        header {
-            background-color: #941919;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative; /* Add this */
+        /* HEADER */
+
+        header{
+            background:linear-gradient(135deg,#1e3c72,#2a5298);
+            color:white;
+            padding:60px 20px;
         }
 
-        .header-content h1 {
-            font-size: 2.5rem;
+        .header-container{
+            max-width:1100px;
+            margin:auto;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:40px;
+            flex-wrap:wrap;
         }
 
-        /* Add styles for the round profile picture */
-        .profile-picture {
-            width: 100px; /* Adjust the size as needed */
-            height: 100px;
-            border-radius: 75%; /* Create a circular shape */
-            object-fit: cover; /* To ensure the image fills the circular area */
-            position: absolute; /* Add this */
-            top: 75px; /* Adjust top position as needed */
-            left: 75px; /* Adjust left position as needed */
+        .profile-picture{
+            width:170px;
+            height:170px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid white;
+            box-shadow:0 5px 20px rgba(0,0,0,0.3);
         }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
+        .header-text h1{
+            font-size:3rem;
+            margin-bottom:10px;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+        .header-text p{
+            font-size:1.2rem;
+            opacity:0.9;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
+        /* NAVIGATION */
+
+        nav{
+            background:#111;
+            position:sticky;
+            top:0;
+            z-index:1000;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
+        nav ul{
+            display:flex;
+            justify-content:center;
+            list-style:none;
+            flex-wrap:wrap;
         }
 
-        .section-content {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 1rem;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
+        nav ul li{
+            margin:15px 20px;
         }
 
-        .download-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            align-self: center;
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
         }
 
-        .download-button:hover {
-            background-color: #555;
+        nav ul li a:hover{
+            color:#4da6ff;
         }
 
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #333;
-            color: #fff;
+        /* SECTION */
+
+        section{
+            padding:60px 20px;
         }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        .container{
+            max-width:1100px;
+            margin:auto;
         }
+
+        .section-title{
+            text-align:center;
+            font-size:2.2rem;
+            margin-bottom:40px;
+            color:#1e3c72;
+            position:relative;
+        }
+
+        .section-title::after{
+            content:'';
+            width:80px;
+            height:4px;
+            background:#2a5298;
+            position:absolute;
+            bottom:-10px;
+            left:50%;
+            transform:translateX(-50%);
+            border-radius:5px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        /* SKILLS */
+
+        .skills{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:20px;
+        }
+
+        .skill-box{
+            background:#2a5298;
+            color:white;
+            padding:20px;
+            text-align:center;
+            border-radius:10px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .skill-box:hover{
+            background:#1e3c72;
+            transform:scale(1.05);
+        }
+
+        /* PROJECTS */
+
+        .projects{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+        }
+
+        .project-card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .project-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .project-card h3{
+            margin-bottom:10px;
+            color:#1e3c72;
+        }
+
+        .project-card a{
+            display:inline-block;
+            margin-top:15px;
+            text-decoration:none;
+            background:#2a5298;
+            color:white;
+            padding:10px 18px;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .project-card a:hover{
+            background:#1e3c72;
+        }
+
+        /* BUTTON */
+
+        .resume-btn{
+            display:inline-block;
+            background:#1e3c72;
+            color:white;
+            padding:14px 28px;
+            border-radius:30px;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .resume-btn:hover{
+            background:#2a5298;
+            transform:scale(1.05);
+        }
+
+        .center{
+            text-align:center;
+        }
+
+        /* CONTACT */
+
+        .contact p{
+            margin:10px 0;
+            font-size:1.1rem;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            .header-text h1{
+                font-size:2.2rem;
+                text-align:center;
+            }
+
+            .header-text p{
+                text-align:center;
+            }
+
+            nav ul{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            nav ul li{
+                margin:10px 0;
+            }
+        }
+
     </style>
 </head>
+
 <body>
+
+    <!-- HEADER -->
+
     <header>
-        <div class="header-content">
-            <!-- Add your profile picture here -->
-            <img src="john.jpeg" alt="Your Profile Picture" class="profile-picture">
-            <h1>John c</h1>
-            <p>I am Computer appilication</p>
+        <div class="header-container">
+
+            <img src="john.jpeg" alt="John Profile" class="profile-picture">
+
+            <div class="header-text">
+                <h1>John C</h1>
+                <p>BCA Student | Web Developer | Programmer</p>
+            </div>
+
         </div>
     </header>
+
+    <!-- NAVIGATION -->
 
     <nav>
         <ul>
@@ -108,83 +285,111 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resume">Resume</a></li>
-           
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>I'm a <b>web development</b> expert who is passionate about creating dynamic and user-friendly websites. 
-                I'm driven by the desire to craft high-performance web applications that enhance user experience and provide
-                 seamless digital solutions.I am a hard working, honest individual. I am a good timekeeper, always willing to learn new skills. I am friendly, helpful and polite, have a good sense of humour.</p>
+    <!-- ABOUT -->
 
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="card">
+                <p>
+                    I am a passionate Web Developer and BCA student with strong interest in creating modern,
+                    responsive, and user-friendly websites. I enjoy learning new technologies and building
+                    digital solutions that improve user experience. I am hardworking, adaptable,
+                    and always eager to enhance my technical skills.
+                </p>
+            </div>
         </div>
     </section>
+
+    <!-- EDUCATION -->
 
     <section id="education">
-        <div class="section-content">
-            <h2>Education</h2>
-            <p>Madras University  -BCA</p>
-            
-            
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <div class="card">
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+                <p>Madras University</p>
+            </div>
         </div>
     </section>
+
+    <!-- SKILLS -->
 
     <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>Html</li>
-                <li>java</li>
-                <li>c++</li>
-            </ul>
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills">
+                <div class="skill-box">HTML</div>
+                <div class="skill-box">CSS</div>
+                <div class="skill-box">JavaScript</div>
+                <div class="skill-box">Python</div>
+                <div class="skill-box">Java</div>
+                <div class="skill-box">C++</div>
+            </div>
         </div>
     </section>
+
+    <!-- PROJECTS -->
 
     <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="#">Personal portfoilo</a></li>
-                <!-- Add more project links here -->
-            </ul>
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects">
+
+                <div class="project-card">
+                    <h3>Personal Portfolio Website</h3>
+
+                    <p>
+                        Designed and developed a modern responsive personal portfolio website
+                        using HTML, CSS, and JavaScript.
+                    </p>
+
+                    <a href="#">View Project</a>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <!-- RESUME -->
 
     <section id="resume">
-    
-        <div class="section-content">
-            <center>
-            <h2>Resume</h2>
-            <a href="john.pdf" target="_blank" class="download-button">Download CV</a>
-        </center>
+        <div class="container center">
+            <h2 class="section-title">Resume</h2>
+
+            <a href="john.pdf" target="_blank" class="resume-btn">
+                Download Resume
+            </a>
         </div>
-        
     </section>
 
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="card contact">
+                <p><strong>Email:</strong> john@example.com</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Location:</strong> Tamil Nadu, India</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
     <footer>
-        <p>&copy; 2025 John c</p>
+        <p>© 2025 John C | All Rights Reserved</p>
     </footer>
 
-    <script>
-        // Smooth scrolling to section when clicking on navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
